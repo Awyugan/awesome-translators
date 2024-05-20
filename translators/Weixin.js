@@ -61,6 +61,7 @@ function scrape(doc, url) {
 	item.date = getArticleDate(doc);
 	item.accessDate = new Date().toISOString().slice(0, 10);
 	item.blogTitle = doc.querySelector("#js_name").innerText.trim(); 
+	item.date = doc.querySelector("#publish_time").innerText;
 	note_content = doc.body.querySelector("#js_content").innerHTML.trim();
 	note_content = note_content.replace(/\"/g, "'");
 	note_content = note_content.replace(/<img .*?src='(.*?)'.*?>/g, "<img src='$1'\/>");
