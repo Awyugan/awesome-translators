@@ -65,7 +65,7 @@ function scrape(doc, url) {
 	note_content = doc.body.querySelector("#js_content").innerHTML.trim();
 	note_content = note_content.replace(/\"/g, "'");
 	note_content = note_content.replace(/<img .*?src='(.*?)'.*?>/g, "<img src='$1'\/>");
-	note_content = `<h1>'摘录'-${item.title}</h1>` + note_content;
+	note_content = `<h1>'${item.title}</h1>` + note_content;
 	item.notes.push({note:note_content});
 	item.attachments.push({url:url, document:doc, title:"Snapshot"});
 	item.complete();
